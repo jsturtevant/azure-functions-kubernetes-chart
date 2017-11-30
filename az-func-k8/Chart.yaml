@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Azure Functions Chart
+name: az-func-k8
+version: 0.1.0
