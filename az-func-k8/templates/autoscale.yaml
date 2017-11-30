@@ -3,13 +3,13 @@ items:
 - apiVersion: autoscaling/v1
   kind: HorizontalPodAutoscaler
   metadata:
-    name: {{ .Values.deployment.name }}
+    name: {{ .Values.functionApp.name }}
   spec:
     maxReplicas: {{ .Values.scale.maxReplicas }}
     minReplicas: {{ .Values.scale.minReplicas }}
     scaleTargetRef:
       apiVersion: extensions/v1beta1
       kind: Deployment
-      name: {{ .Values.deployment.name }}
+      name: {{ .Values.functionApp.name }}
     targetCPUUtilizationPercentage:  {{ .Values.scale.cpuUtilizationPercentage }}
 kind: List

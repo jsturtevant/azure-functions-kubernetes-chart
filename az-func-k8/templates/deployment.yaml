@@ -1,9 +1,9 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ .Values.deployment.name }}
+  name: {{ .Values.functionApp.name }}
   labels:
-    app: {{ .Values.deployment.name }}
+    app: {{ .Values.functionApp.name }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -12,11 +12,11 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Values.deployment.name }}
+        app: {{ .Values.functionApp.name }}
         release: {{ .Release.Name }}
     spec:
       containers:
-        - name: {{ .Values.deployment.name }}
+        - name: {{ .Values.functionApp.name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

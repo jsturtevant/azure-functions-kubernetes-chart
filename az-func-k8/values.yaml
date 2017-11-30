@@ -2,14 +2,13 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 replicaCount: 1
+functionApp:
+  name: azurefunctions
 image:
   repository: vyta/functions
   tag: latest
   pullPolicy: IfNotPresent
-deployment:
-  name: azurefunctions
 service:
-  name: azurefunctions
   type: LoadBalancer
   externalPort: 80
   internalPort: 80

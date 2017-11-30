@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.deployment.name }}
+  name: {{ .Values.functionApp.name }}
   labels:
-    app: {{ .Values.deployment.name }}
+    app: {{ .Values.functionApp.name }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: {{ .Values.service.name }}
   selector:
-    app: {{ .Values.deployment.name }}
+    app: {{ .Values.functionApp.name }}
     release: {{ .Release.Name }}
