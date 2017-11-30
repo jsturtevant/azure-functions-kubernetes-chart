@@ -28,3 +28,19 @@ If you want to see what install might look like:
 ```bash
 helm install --debug --dry-run --set resources.requests.cpu=200m ./az-func-k8
 ```
+
+## Test the scaling
+Test that the scaling works:
+
+```bash
+docker run -it busybox /bin/sh
+#
+\#: 		while true; do wget -q -O- http://<your-ipaddress>/api/httpfunction?name=testingload; done 
+```
+
+In a separate terminal run:
+
+```bash
+kubectl get hpa
+kubectl get deploy <deployment-name>
+```
