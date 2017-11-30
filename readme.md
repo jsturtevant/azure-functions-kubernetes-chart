@@ -13,7 +13,8 @@ There are a few settings you should override:
 An example would be:
 
 ```bash 
-helm install --set resources.requests.cpu=200m \
+helm install --set functionApp.name=sampleapp \
+             --set resources.requests.cpu=200m \
              --set image.repository=vyta/functions \
              --set scale.maxReplicas=10 \
              --set scale.minReplicas=1 \
